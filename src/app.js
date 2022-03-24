@@ -8,10 +8,19 @@ const Ship = (length, coord, isSunk) => {
     }
 }
 
-const Gameboard = () => {
+const Gameboard = (coords) => {
+
+    
+    //depending on players turn, and what size ship they pick, where they place it, 
+    //call Ship factory and insert coordinates
+    // call ship factor
+
+    const receiveAttack = (coords) => {}
     return {}
 }
 
+
+//will run through either player using a loop
 class Player {
     constructor(name) {
         this.name = name
