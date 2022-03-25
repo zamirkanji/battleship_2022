@@ -1,10 +1,19 @@
 const Ship = (length, coord, isSunk) => {
-    const getLength = () => length;
 
-    const hit = () => {}
-    const isSunk = () => {}
+    const getLength = () => length.length;
+
+    //where the ship has been hit (positiions)
+    const hit = () => {
+
+    }
+    //if all positions of one battleship are hit, then ship isSunk return (true)
+    const isSunk = () => {
+
+    }
     return{
-        getLength,
+        length: getLength,
+        hit: false,
+
     }
 }
 
