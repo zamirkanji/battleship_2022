@@ -1,4 +1,4 @@
-const Ship = (length, hit, coords = undefined) => {
+const Ship = (length, coords) => {
 
     // const getLength = () => length.length;
 
@@ -13,7 +13,7 @@ const Ship = (length, hit, coords = undefined) => {
     //where the ship has been hit (positiions)
     //call on DOM, place hit marker
     //if ship has been hit on either player or comp, they get to take another turn 
-    const shipHit = () => {
+    const shipHit = (hit) => {
         let positionsHit = [];
         positionsHit.push(hit);
         return {
@@ -28,6 +28,7 @@ const Ship = (length, hit, coords = undefined) => {
     }
     return {
         length,
+        coords: positions(),
         hit: shipHit(),
         isSunk: sunk()
     }
@@ -44,22 +45,15 @@ const Gameboard = (coords) => {
     //all ships created and where they are at on the board, call ship factory function
     const placeShips = (length, name, coords, player) => {
         //test, example sizes
-        let carrier = Ship(5, );
-        let battleship = Ship(4, );
-        let destroyer = Ship(3, );
-        let submarine = Ship(3, );
-        let patrolBoat = Ship(2, );
+        // let carrier = Ship(5, );
+        // let battleship = Ship(4, );
+        // let destroyer = Ship(3, );
+        // let submarine = Ship(3, );
+        // let patrolBoat = Ship(2, );
 
         return {
 
         }
-    }
-
-    //if coordinates do not match where a ship is placed, place missed marker
-    //placeShips() returns object of all placed ships
-    //when missedAttacks is called, find() in object for ANY matches
-    const missedAttacks = () => {
-
     }
 
     //if coordinates matches where the ship has been hit, mark as HIT
@@ -69,7 +63,15 @@ const Gameboard = (coords) => {
         //and checks whether or not A SINGLE ship has been hit (place ships function will return this)
         //checks key of object where coord is and calls that objects HIT func
         //if miss, places miss marker on canvas 
-        
+        let coords = [`${x}${y}`];
+
+    }
+
+    //if coordinates do not match where a ship is placed, place missed marker
+    //placeShips() returns object of all placed ships
+    //when missedAttacks is called, find() in object for ANY matches
+    const missedAttacks = () => {
+
     }
 
     //if check placeShips object, if ALL markers have been hit, all ships are sunk
