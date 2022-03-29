@@ -1,11 +1,11 @@
-const { TestWatcher } = require("jest");
-import { Ship } from '../src/app';
+import {Ship} from '../src/app';
 
 test('test return object of ship', () => {
-    let carrier = Ship(5, ['A1', 6], false);
+    let carrier = Ship(5, 'A1');
+    // console.log(carrier);
     expect(
-        carrier()
+        carrier
     ).toMatchObject({
-        
+        length: 5, hit: { hit: [ ["A1"] ] }, isSunk: true 
     })
 })

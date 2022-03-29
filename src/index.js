@@ -1,5 +1,6 @@
 import './style.css';
 import { returnHelloTest } from './DOM';
+import { Ship, Gameboard, Player } from './app';
 
 
 const displayUI = () => {

@@ -14,6 +14,10 @@ module.exports = {
             },
         ],
     },
+    // presets: [
+    //     ['@babel/preset-env', 
+    //     {targets: {node: 'current'}}]
+    // ],
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
