@@ -120,13 +120,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/app.js":
+/*!********************!*\
+  !*** ./src/app.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"Gameboard\": () => (/* binding */ Gameboard),\n/* harmony export */   \"Player\": () => (/* binding */ Player),\n/* harmony export */   \"Ship\": () => (/* binding */ Ship)\n/* harmony export */ });\nconst Ship = (length, hit, coords = undefined) => {\n\n    // const getLength = () => length.length;\n\n    //depending on where the ship was dragged and dropped, the length - get coordinates and return them\n    //call DOM and place ship at specific coordinate\n    const positions = () => {\n        return {\n            shipCoords: coords\n        }\n    }\n\n    //where the ship has been hit (positiions)\n    //call on DOM, place hit marker\n    //if ship has been hit on either player or comp, they get to take another turn \n    const shipHit = () => {\n        let positionsHit = [];\n        positionsHit.push(hit);\n        return {\n            hit: [positionsHit]\n        }\n    }\n    //if all positions of one battleship are hit, then ship isSunk return (true)\n    const sunk = () => {\n        let hits = shipHit();\n        let isSunk = (length % hits.hit.length) === 0 ? true : false;\n        return isSunk\n    }\n    return {\n        length,\n        hit: shipHit(),\n        isSunk: sunk()\n    }\n    // return {getLength, shipHit, isSunk}\n}\n\nconst Gameboard = (coords) => {\n    //depending on players turn, and what size ship they pick, where they place it, \n    //call Ship factory and insert coordinates\n    // call ship factor\n    //ship.hit() is called when not a miss\n\n\n    //all ships created and where they are at on the board, call ship factory function\n    const placeShips = (length, name, coords, player) => {\n        //test, example sizes\n        let carrier = Ship(5, );\n        let battleship = Ship(4, );\n        let destroyer = Ship(3, );\n        let submarine = Ship(3, );\n        let patrolBoat = Ship(2, );\n\n        return {\n\n        }\n    }\n\n    //if coordinates do not match where a ship is placed, place missed marker\n    //placeShips() returns object of all placed ships\n    //when missedAttacks is called, find() in object for ANY matches\n    const missedAttacks = () => {\n\n    }\n\n    //if coordinates matches where the ship has been hit, mark as HIT\n    //check which type of ship has been hit\n    const receiveAttack = (x, y) => {\n        //this function is called when user clicks on canvas, checks the coordinates (Ex. A1, C6) \n        //and checks whether or not A SINGLE ship has been hit (place ships function will return this)\n        //checks key of object where coord is and calls that objects HIT func\n        //if miss, places miss marker on canvas \n        \n    }\n\n    //if check placeShips object, if ALL markers have been hit, all ships are sunk\n    const allShipsSunk = () => {\n\n    }\n\n    return {\n\n    }\n}\n\n//player, computer\n// class Player {\n//     constructor(name) {\n//         this.name = name\n//     }\n// }\n\nfunction Player (name) {\n    const playerTurns = (player, comp) => {\n        \n    }\n    return {name}\n}\n\n\n\n//# sourceURL=webpack://battleship_2022/./src/app.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DOM */ \"./src/DOM.js\");\n\n\n\n\nconst displayUI = () => {\n    (0,_DOM__WEBPACK_IMPORTED_MODULE_1__.returnHelloTest)();\n}\n\nconst App = (() => {\n    window.addEventListener('load', displayUI)\n})();\n\n//# sourceURL=webpack://battleship_2022/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _DOM__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DOM */ \"./src/DOM.js\");\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n\n\n\n\n\nconst displayUI = () => {\n    (0,_DOM__WEBPACK_IMPORTED_MODULE_1__.returnHelloTest)();\n}\n\nconst App = (() => {\n    window.addEventListener('load', displayUI)\n})();\n\n//# sourceURL=webpack://battleship_2022/./src/index.js?");
 
 /***/ })
 
