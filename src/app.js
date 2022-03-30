@@ -1,10 +1,12 @@
-const Ship = (length, coords) => {
+const Ship = (name, length) => {
 
     // const getLength = () => length.length;
 
     //depending on where the ship was dragged and dropped, the length - get coordinates and return them
     //call DOM and place ship at specific coordinate
-    const positions = () => {
+    const positions = (ship, coords) => {
+        //ship.name 
+        //ship.length
         return {
             shipCoords: coords
         }
@@ -35,25 +37,33 @@ const Ship = (length, coords) => {
     // return {getLength, shipHit, isSunk}
 }
 
-const Gameboard = (coords) => {
+const Gameboard = (player) => {
     //depending on players turn, and what size ship they pick, where they place it, 
     //call Ship factory and insert coordinates
     // call ship factor
     //ship.hit() is called when not a miss
 
+    //test, example sizes
+    // let carrier = Ship('carrier', 5);
+    // let battleship = Ship(4, );
+    // let destroyer = Ship(3, );
+    // let submarine = Ship(3, );
+    // let patrolBoat = Ship(2, );
+    let playerShips = {}
+    let computerShips = {}
+
 
     //all ships created and where they are at on the board, call ship factory function
-    const placeShips = (length, name, coords, player) => {
-        //test, example sizes
-        // let carrier = Ship(5, );
-        // let battleship = Ship(4, );
-        // let destroyer = Ship(3, );
-        // let submarine = Ship(3, );
-        // let patrolBoat = Ship(2, );
-
-        return {
-
+    const placeShips = (name, length, coords, player) => {
+        if (player === 'player') {
+            playerShips[`${name}`] = {length, coords};
         }
+        if (player === 'computer') {
+            computerShips[`${name}`] = {length, coords};
+        }
+        console.log(playerShips);
+        //calls ship.coords function for each ship
+        return {}
     }
 
     //if coordinates matches where the ship has been hit, mark as HIT
@@ -80,7 +90,7 @@ const Gameboard = (coords) => {
     }
 
     return {
-
+        placeShips
     }
 }
 
@@ -91,6 +101,8 @@ const Gameboard = (coords) => {
 //     }
 // }
 
+
+//each player creates gameboard
 function Player (name) {
     const playerTurns = (player, comp) => {
         
