@@ -15,6 +15,10 @@ const gameLoop = () => {
         const c = Player('computer');
     }
 
+    const createGB = (n) => {
+        let gb = Gameboard(n);
+    }
+
     const createP = (n) => {
         let p = Player(`${n}`);
         return () => {
@@ -22,10 +26,14 @@ const gameLoop = () => {
             return gb;        
         }
     }
-    let p = createP('zamir');
-    console.log(p);
-    let returnedP = p()
-    let curryingGB = createP('zamir')()
+    let player = createPlayer('zamir');
+    let playerGB = createGB('zamir');
+
+    // let p = createP('zamir');
+    // let returnedP = p();
+    // let curryingGB = createP('zamir')();
+
+
 
 }
 

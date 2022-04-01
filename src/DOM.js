@@ -14,10 +14,10 @@ class DOM {
         const s = document.querySelector(`${selector}`);
         s.addEventListener(`${type}`, func);
     }
-    
+
     createElement (type, func) {
-        const s = document.createElement(`${type}`);
-        s.addEventListener(`${type}`, func);
+        const el = document.createElement(`${type}`);
+        return el
     }
 }
 
