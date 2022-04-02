@@ -1,3 +1,5 @@
+import gameLoop from "./game";
+
 const returnHelloTest = () => {
     const app = document.querySelector('#app');
     const h1 = document.createElement('h1');
@@ -15,13 +17,22 @@ class DOM {
         s.addEventListener(`${type}`, func);
     }
 
-    createElement (type, func) {
+    createElement (type) {
         const el = document.createElement(`${type}`);
         return el
     }
 }
 
+const createNewGameBtn = () => {
+    const createDOM = new DOM();
+    let btn = createDOM.createElement('button');
+    btn.classList.add('new-game-btn');
+    btn.textContent = 'New Game';
+    btn.addEventListener('click', gameLoop);
+    return btn
+}
 export {
     returnHelloTest, 
+    createNewGameBtn,
     DOM
 }
