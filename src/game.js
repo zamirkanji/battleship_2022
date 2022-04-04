@@ -26,15 +26,31 @@ const gameLoop = () => {
             return gb;        
         }
     }
-    let player = createPlayer('zamir');
-    let playerGB = createGB('zamir');
+    
 
     // let p = createP('zamir');
     // let returnedP = p();
     // let curryingGB = createP('zamir')();
 
+    return {
+        createP
+    }
 
+}
 
+const startGame = () => {
+    const newGame = gameLoop();
+    const player = newGame.createP('zamir');
+    const computer = newGame.createP('computer');
+    return {player, computer}
+}
+
+const getCoords = () => {
+    //when drage and drop is done, get coords and call
+    const getPlayers = startGame();
+    const {player, computer} = getPlayers;
+    let playerGB = player('zamir')
+    let computerGB = computer('computer');
 }
 
 export default gameLoop
