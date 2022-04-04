@@ -1,12 +1,18 @@
 import './style.css';
 import { returnHelloTest, createNewGameBtn, DOM } from './DOM';
 import { Ship, Gameboard, Player } from './app';
-import gameLoop from './game';
+import { getCoords, gameLoop, startGame } from './game';
 
 
 const displayUI = () => {
-    returnHelloTest();
+    // returnHelloTest();
     createNewGameBtn();
+    // getCoords();
+    test();
+}
+
+const test = () => {
+    getCoords();
 }
 
 const App = (() => {

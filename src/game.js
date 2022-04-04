@@ -1,3 +1,4 @@
+import { defaults } from "lodash";
 import { Ship, Player, Gameboard } from "./app"
 import { DOM } from "./DOM";
 
@@ -49,8 +50,13 @@ const getCoords = () => {
     //when drage and drop is done, get coords and call
     const getPlayers = startGame();
     const {player, computer} = getPlayers;
-    let playerGB = player('zamir')
+    let playerGB = player('zamir');
     let computerGB = computer('computer');
+    console.log(playerGB);
 }
 
-export default gameLoop
+export {
+    gameLoop, 
+    startGame, 
+    getCoords
+}

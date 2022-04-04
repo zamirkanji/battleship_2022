@@ -1,12 +1,11 @@
-const Ship = (name, length) => {
+const Ship = (length) => {
     //depending on where the ship was dragged and dropped, the length - get coordinates and return them
     //call DOM and place ship at specific coordinate
-    const positions = (ship, coords) => {
+    const positions = (coords) => {
         //ship.name 
         //ship.length
-        return {
-            shipCoords: coords
-        }
+        let shipCoords = [coords];
+        return shipCoords;
     }
     //where the ship has been hit (positiions)
     //call on DOM, place hit marker
@@ -27,44 +26,35 @@ const Ship = (name, length) => {
 
     return {
         length,
-        coords: positions(),
-        hit: shipHit(),
-        isSunk: sunk()
+        positions,
+        shipHit,
+        sunk
     }
-    // return {getLength, shipHit, isSunk}
 }
+
+
+
+
 
 const Gameboard = (playerType) => {
     //depending on players turn, and what size ship they pick, where they place it, 
     //call Ship factory and insert coordinates
     // call ship factor
     //ship.hit() is called when not a miss
+    let ships = {};
 
-    //test, example sizes
-    // let carrier = Ship('carrier', 5);
-    // let battleship = Ship(4, );
-    // let destroyer = Ship(3, );
-    // let submarine = Ship(3, );
-    // let patrolBoat = Ship(2, );
-    let playerShips = {}
-    let computerShips = {}
-
+    const createShip = (length, name) => {
+        ships[`${name}`] = Ship(length);
+        return ships;
+    }
 
     //all ships created and where they are at on the board, call ship factory function
     const placeShips = (name, length, coords, player) => {
-        if (player === 'player') {
-            playerShips[`${name}`] = {length, coords};
-        }
-        if (player === 'computer') {
-            computerShips[`${name}`] = {length, coords};
-        }
+        ships[`${player}`] = Ship(length)
         //calls ship.coords function for each ship
 
         //will need to return coordinates of whoevers turn it is (which players board is getting hit)
-        return {
-            playerShips,
-            computerShips
-        }
+       
     }
 
     function getKeyByValue(object, value) {
@@ -105,7 +95,7 @@ const Gameboard = (playerType) => {
     }
 
     return {
-        playerType: {
+        [`${playerType}`]: {
             placeShips, 
             receiveAttack,
             missedAttacks, 

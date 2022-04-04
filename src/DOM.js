@@ -23,6 +23,19 @@ class DOM {
     }
 }
 
+const createGrid = (player) => {
+    //create elements
+    for (let i = 0; i < 10; i++) {
+        let box = document.createElement('div');
+
+    }
+}
+
+const createPlayerBoard = () => {
+    let player = document.getElementById('playerBoard');
+    createGrid(player);
+}
+
 const createNewGameBtn = () => {
     const createDOM = new DOM();
     let btn = createDOM.createElement('button');
