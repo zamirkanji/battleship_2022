@@ -48,8 +48,21 @@ const Gameboard = (playerType) => {
         return ships;
     }
 
+    // const createAllShips = (l) => {
+    //     let carrier = Ship(l)
+    //     let battleship = Ship(l)
+    //     let destroyer = Ship(l)
+    //     let submarine = Ship(l)
+    //     let patrolBoat = Ship(l)
+    //     return {carrier, battleship, destroyer, submarine, patrolBoat}
+    // }
+
     //all ships created and where they are at on the board, call ship factory function
     const placeShips = (name, length, coords, player) => {
+
+        //match name of ship, and add coords
+
+
         ships[`${player}`] = Ship(length)
         //calls ship.coords function for each ship
 
@@ -96,10 +109,12 @@ const Gameboard = (playerType) => {
 
     return {
         [`${playerType}`]: {
+            createShip,
             placeShips, 
             receiveAttack,
             missedAttacks, 
-            allShipsSunk
+            allShipsSunk,
+            ships
         }   
     }
 }

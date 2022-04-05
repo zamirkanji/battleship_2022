@@ -1,20 +1,20 @@
 import './style.css';
-import { returnHelloTest, createNewGameBtn, DOM } from './DOM';
+import { returnHelloTest, createNewGameBtn, DOM, createGrid } from './DOM';
 import { Ship, Gameboard, Player } from './app';
 import { getCoords, gameLoop, startGame } from './game';
 
 
 const displayUI = () => {
-    // returnHelloTest();
-    createNewGameBtn();
-    // getCoords();
+    createGrid('playerBoard');
+    createGrid('computerBoard');
     test();
 }
 
 const test = () => {
-    getCoords();
+    startGame();
 }
 
 const App = (() => {
-    window.addEventListener('load', displayUI)
+    window.addEventListener('load', displayUI);
+    // document.querySelector('new-game-btn').addEventListener(test);
 })();

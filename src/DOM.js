@@ -1,4 +1,4 @@
-import gameLoop from "./game";
+import {gameLoop} from "./game";
 
 const returnHelloTest = () => {
     const app = document.querySelector('#app');
@@ -23,18 +23,31 @@ class DOM {
     }
 }
 
-const createGrid = (player) => {
+const createGrid = (b) => {
     //create elements
+    const board = document.getElementById(`${b}`);
+    const table = document.createElement('table');
+
     for (let i = 0; i < 10; i++) {
-        let box = document.createElement('div');
-
+        let row = document.createElement('tr');
+        row.classList.add('board-row');
+        for (let j = 0; j < 10; j++) {
+            //if row index matches row - 
+            let box = document.createElement('td');
+            box.dataset.x = j;
+            box.dataset.y = i;
+            box.classList.add('grid-box'); 
+            row.appendChild(box);  
+        }
+        table.appendChild(row);
     }
+    board.appendChild(table);
 }
 
-const createPlayerBoard = () => {
-    let player = document.getElementById('playerBoard');
-    createGrid(player);
-}
+// const createPlayerBoard = () => {
+//     let player = document.getElementById('playerBoard');
+//     createGrid(player);
+// }
 
 const createNewGameBtn = () => {
     const createDOM = new DOM();
@@ -44,8 +57,11 @@ const createNewGameBtn = () => {
     btn.addEventListener('click', gameLoop);
     return btn
 }
+
+
 export {
     returnHelloTest, 
     createNewGameBtn,
-    DOM
+    DOM,
+    createGrid
 }
