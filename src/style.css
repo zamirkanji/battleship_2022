@@ -94,3 +94,7 @@ table {
         gap: 50px;
     }
 }
+
+.display {
+    display: none;
+}
