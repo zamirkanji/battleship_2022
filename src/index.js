@@ -1,17 +1,18 @@
 import './style.css';
-import { returnHelloTest, createNewGameBtn, DOM, createGrid } from './DOM';
+import { returnHelloTest, createNewGameBtn, DOM, createGrid, newGameBtnEvent } from './DOM';
 import { Ship, Gameboard, Player } from './app';
 import { getCoords, gameLoop, startGame } from './game';
 
 
 const displayUI = () => {
-    createGrid('playerBoard');
-    createGrid('computerBoard');
+    // createGrid('playerBoard');
+    // createGrid('computerBoard');
     test();
 }
 
 const test = () => {
-    startGame();
+    newGameBtnEvent();
+    
 }
 
 const App = (() => {

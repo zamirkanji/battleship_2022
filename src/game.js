@@ -1,6 +1,7 @@
 import { create, defaults } from "lodash";
 import { Ship, Player, Gameboard } from "./app"
 import { DOM } from "./DOM";
+import { createNewGameBtn } from "./DOM";
 
 //once new game btn is clicked, run gameLoop
 //create
@@ -13,15 +14,15 @@ const gameLoop = () => {
         }
     }
 
-    const createPlayer = () => {
-        const player = createP('zamir');
-        let playerGB = player('zamir');
+    const createPlayer = (n) => {
+        const player = createP(`${n}`);
+        let playerGB = player(`${n}`);
         return playerGB
     }
 
-    const createComputer = () => {
-        const computer = createP('computer');
-        let computerGB = computer('computer');
+    const createComputer = (n) => {
+        const computer = createP(`${n}`);
+        let computerGB = computer(`${n}`);
         return computerGB
     }
 
@@ -34,34 +35,33 @@ const gameLoop = () => {
     }
 
     //once button is pressed
-    const createGameBoards = (i) => {
-        let playerGB = createPlayer();
-        let computerGB = createComputer();
-        createPlayerShips(playerGB, `${i}`);
-        createPlayerShips(computerGB, 'computer');
+    const createGameBoards = (p, c) => {
+        let playerGB = createPlayer(p);
+        let computerGB = createComputer(c);
+        // createPlayerShips(playerGB, `${i}`);
+        createPlayerShips(playerGB, `${p}`);
+        createPlayerShips(computerGB, `${c}`);
         return {playerGB, computerGB}
     }
-    
-
     // let p = createP('zamir');
     // let returnedP = p();
     // let curryingGB = createP('zamir')();
-
     return {
         // createPlayer,
         // createComputer,
         createGameBoards
     }
-
 }
 
 const startGame = () => {
     const newGame = gameLoop();
-    let getPlayers = newGame.createGameBoards('zamir');
+    // let getPlayers = newGame.createGameBoards('zamir');
+    let getPlayers = newGame.createGameBoards('player', 'computer');
     const {playerGB, computerGB} = getPlayers;
-
+    // createNewGameBtn();
     console.log(playerGB);
-    console.log(computerGB);
+    console.log(computerGB)
+    return {playerGB, computerGB};
 }
 
 const getCoords = () => {

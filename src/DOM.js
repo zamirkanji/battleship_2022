@@ -1,4 +1,4 @@
-import {gameLoop} from "./game";
+import {gameLoop, startGame} from "./game";
 
 const returnHelloTest = () => {
     const app = document.querySelector('#app');
@@ -58,10 +58,40 @@ const createNewGameBtn = () => {
     return btn
 }
 
+const newGameBtnEvent = () => {
+    return document.querySelector('#new-game-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        createGrid('playerBoard');
+        createGrid('computerBoard');
+        showPlayerBoard();
+        createShipsInDOM();
+    })
+}
+
+const showPlayerBoard = () => {
+    document.querySelector('#playerContainer').classList.remove('display');
+}
+
+const showConputerBoard = () => {
+    document.querySelector('#computerContainer').classList.remove('display');
+}
+
+const createShipsInDOM = () => {
+    let game = startGame();
+    let {computerGB, playerGB} = game;
+    const playerShips = playerGB.player.ships;
+    const computerShips = computerGB.computer.ships;
+    console.log(Object.keys(playerShips));
+    for (let i = 0; i < Object.keys(playerShips).length; i++) {
+        document.createElement('div');
+    }
+}
+
 
 export {
     returnHelloTest, 
     createNewGameBtn,
     DOM,
-    createGrid
+    createGrid,
+    newGameBtnEvent
 }
