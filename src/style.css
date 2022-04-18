@@ -6,6 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-weight: 400;
 }
 
 html {
@@ -15,6 +16,14 @@ html {
 
 body {
     height: 100%;
+    background-color: rgb(55, 56, 57);
+}
+
+button {
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    opacity: 1;
 }
 
 #app {
@@ -63,7 +72,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 50px;
+}
+
+.text {
+    color: white;
+    letter-spacing: 1px;
 }
 
 table {
@@ -82,10 +96,31 @@ table {
     flex-wrap: wrap;
 }
 
+.player-ships, .computer-ships {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ship-container {
+    display: flex;
+    /* gap: 5px; */
+}
+
+.ship-box {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    background-color: darkcyan;
+    box-sizing: border-box;
+    
+}
+
 .grid-box {
     height: 30px;
     width: 30px;
     border: 1px solid black;
+    background-color: white;
 }
 
 @media only screen and (max-width: 700px) {

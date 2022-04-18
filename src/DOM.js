@@ -64,29 +64,59 @@ const newGameBtnEvent = () => {
         createGrid('playerBoard');
         createGrid('computerBoard');
         showPlayerBoard();
-        createShipsInDOM();
+        
     })
 }
 
 const showPlayerBoard = () => {
     document.querySelector('#playerContainer').classList.remove('display');
+    createShipsInDOM('player-ships');
 }
 
 const showConputerBoard = () => {
     document.querySelector('#computerContainer').classList.remove('display');
+    createShipsInDOM('computer-ships');
 }
 
-const createShipsInDOM = () => {
+const createShipsInDOM = (n) => {
     let game = startGame();
     let {computerGB, playerGB} = game;
     const playerShips = playerGB.player.ships;
     const computerShips = computerGB.computer.ships;
-    console.log(Object.keys(playerShips));
-    for (let i = 0; i < Object.keys(playerShips).length; i++) {
-        document.createElement('div');
+    // for (let i = 0; i < Object.values(playerShips).length; i++) {
+    //     console.log(Object.values(playerShips));
+    //     document.createElement('div');
+    //     // for (let j = 0; j < )
+    // }
+
+    for (const [key, value] of Object.entries(playerShips)) {
+        console.log(`${key}: ${value.length}`);
+        let l = value.length;
+        let div = document.createElement('div');
+        div.classList.add('ship-container');
+        div.draggable = true;
+        let w = l * 30;
+        div.style.width = `${w}px`;
+        div.id = `${key}`;
+        div.addEventListener('ondragstart', drag);
+        for (let i = 0; i < l; i++) {
+            let span = document.createElement('span');
+            span.classList.add('ship-box');
+            div.appendChild(span);
+        }
+        document.querySelector(`.${n}`).appendChild(div);
     }
 }
 
+const drag = (e) => {
+    console.log('test');
+    console.log(e.target.id);
+    // e.dataTransfer.setData('')
+}
+
+const drop = (e) => {
+    e.preventDefault();
+}
 
 export {
     returnHelloTest, 
