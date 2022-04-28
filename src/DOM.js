@@ -83,11 +83,6 @@ const createShipsInDOM = (n) => {
     let {computerGB, playerGB} = game;
     const playerShips = playerGB.player.ships;
     const computerShips = computerGB.computer.ships;
-    // for (let i = 0; i < Object.values(playerShips).length; i++) {
-    //     console.log(Object.values(playerShips));
-    //     document.createElement('div');
-    //     // for (let j = 0; j < )
-    // }
 
     for (const [key, value] of Object.entries(playerShips)) {
         console.log(`${key}: ${value.length}`);
@@ -98,7 +93,8 @@ const createShipsInDOM = (n) => {
         let w = l * 30;
         div.style.width = `${w}px`;
         div.id = `${key}`;
-        div.addEventListener('ondragstart', drag);
+        // div.addEventListener('ondragstart', drag);
+        div.ondragstart = drag;
         for (let i = 0; i < l; i++) {
             let span = document.createElement('span');
             span.classList.add('ship-box');
@@ -108,14 +104,14 @@ const createShipsInDOM = (n) => {
     }
 }
 
-const drag = (e) => {
+const drag = (ev) => {
     console.log('test');
-    console.log(e.target.id);
+    console.log(ev.target.id);
     // e.dataTransfer.setData('')
 }
 
-const drop = (e) => {
-    e.preventDefault();
+const drop = (ev) => {
+    ev.preventDefault();
 }
 
 export {
